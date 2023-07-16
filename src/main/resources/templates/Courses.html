@@ -18,6 +18,16 @@
         <a class="py-2 text-dark" href="/progress">Оценки</a>
     </nav>
 </div>
-<p th:text="'Привет, ' + ${title} + '!'" />
+<h1 th:text = "Course" />
+<div th:each = "el : ${course}" >
+    <div class="row row-cols-md-4 mb-3 text-center">
+        <div th:text = "${el.id}" class="col themed-grid-col"></div>
+        <div th:text = "${el.name}" class="col themed-grid-col"></div>
+        <div th:text = "${el.price}" class="col themed-grid-col"></div>
+        <div th:text = "${el.professor.getName()}" class="col themed-grid-col"></div>
+    </div>
+</div>
+
+</div>
 </body>
 </html>

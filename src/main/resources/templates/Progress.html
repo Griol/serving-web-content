@@ -26,5 +26,15 @@
     <div class="col-4 themed-grid-col">.col-4</div>
     <div class="col-4 themed-grid-col">.col-4</div>
 </div>
+<h1 th:text = "Teacher" />
+<div th:each = "el : ${progress}" class = "alert alert-info mt-2">
+    <div class="row mb-3 text-center">
+
+        <div th:text = "${el.id}" class="col-4 themed-grid-col"></div>
+        <!--<div th:text = "${el.mark}" class="col-4 themed-grid-col"></div>-->
+    </div>
+</div>
+
+</div>
 </body>
 </html>
