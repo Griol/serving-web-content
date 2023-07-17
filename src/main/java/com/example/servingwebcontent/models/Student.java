@@ -16,8 +16,19 @@ public class Student {
     @JoinColumn(name = "studMarks")
     public List<Progress> marks;
 
-    public List<String> finCourses = new ArrayList<>();
 
+
+    public Student(Long num, String name, String adress, String tel, String email, List<Progress> marks) {
+        this.num = num;
+        this.name = name;
+        this.adress = adress;
+        this.tel = tel;
+        this.email = email;
+        this.marks = marks;
+    }
+
+    public Student() {
+    }
 
     public List<Progress> getMarks() {
         return marks;
@@ -68,10 +79,21 @@ public class Student {
     }
 
     public List<String> getFinCourses(){
-        for(int i = 1;i<=marks.size();i++)
-        if(marks.get(i).finMark()>=70){
-            finCourses.add(marks.get(i).getCourse().getName());
-        }
+    List<String> finCourses = new ArrayList<>();
+     int k=0;
+        for(int i = 0;i<marks.size();i++){
+            if(marks.get(i).finMark()>=70){
+                k++;
+            }}
+        if(k>0){
+            finCourses = new ArrayList<>(k);
+            for(int i = 0;i<marks.size();i++){
+                if(marks.get(i).finMark()>=70){
+                     finCourses.add(i,marks.get(i).getCourse().getName());
+        }}}
+        if(k==0){
+            finCourses = new ArrayList<>(1);
+            finCourses.add(0,"Нет пройденных курсов");}
         return finCourses;
     }
 

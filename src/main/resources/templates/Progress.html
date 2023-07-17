@@ -22,10 +22,12 @@
 
 <h1 th:text = "Progress" />
 <div th:each = "el : ${progress}" >
-    <div class="row row-cols-md-4 mb-3 text-center">
+    <div class="row row-cols-md-5 mb-3 text-center">
         <div th:text = "${el.student.getName()}" class="col themed-grid-col"></div>
         <div th:text = "${el.course.getName()}" class="col themed-grid-col"></div>
         <div th:text = "${el.mark}" class="col themed-grid-col"></div>
+        <div th:text = "${el.avgMark()}"class="col themed-grid-col"></div>
+        <div th:text = "${el.finMark()}"class="col themed-grid-col"></div>
     </div>
 </div>
 

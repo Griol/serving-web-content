@@ -21,7 +21,7 @@
 
 <h1 th:text = "Students" />
 <div th:each = "el : ${student}" >
-    <div class="row row-cols-md-5 mb-3 text-center">
+    <div class="row row-cols-md-6 mb-3 text-center">
         <div th:text = "${el.name}" class="col themed-grid-col"></div>
         <div th:text = "${el.adress}" class="col themed-grid-col"></div>
         <div th:text = "${el.tel}" class="col themed-grid-col"></div>
@@ -29,6 +29,7 @@
         <div th:each = "el1 : ${el.marks}" >
             <div th:text = "${el1.course.getName()}" class="col themed-grid-col"></div>
         </div>
+        <div th:text = "${el.getFinCourses()}" class="col themed-grid-col"></div>
     </div>
 </div>
 
