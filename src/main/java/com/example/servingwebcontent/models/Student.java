@@ -1,10 +1,9 @@
 package com.example.servingwebcontent.models;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Student {
@@ -12,17 +11,19 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long num;
     private String name, adress, tel, email;
-    private float avgmark;
-    @OneToOne
+
+    @OneToMany
     @JoinColumn(name = "studMarks")
-    public Progress marks;
+    public List<Progress> marks;
+
+    public List<String> finCourses = new ArrayList<>();
 
 
-    public Progress getMarks() {
+    public List<Progress> getMarks() {
         return marks;
     }
 
-    public void setMarks(Progress marks) {
+    public void setMarks(List<Progress> marks) {
         this.marks = marks;
     }
 
@@ -46,10 +47,6 @@ public class Student {
         return email;
     }
 
-    public float getAvgmark() {
-        return avgmark;
-    }
-
     public void setNum(Long num) {
         this.num = num;
     }
@@ -70,7 +67,12 @@ public class Student {
         this.email = email;
     }
 
-    public void setAvgmark(float avgmark) {
-        this.avgmark = avgmark;
+    public List<String> getFinCourses(){
+        for(int i = 1;i<=marks.size();i++)
+        if(marks.get(i).finMark()>=70){
+            finCourses.add(marks.get(i).getCourse().getName());
+        }
+        return finCourses;
     }
+
 }

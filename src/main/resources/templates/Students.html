@@ -26,8 +26,9 @@
         <div th:text = "${el.adress}" class="col themed-grid-col"></div>
         <div th:text = "${el.tel}" class="col themed-grid-col"></div>
         <div th:text = "${el.email}" class="col themed-grid-col"></div>
-        <div th:text = "${el.marks.course.getName()}" class="col themed-grid-col"></div>
-
+        <div th:each = "el1 : ${el.marks}" >
+            <div th:text = "${el1.course.getName()}" class="col themed-grid-col"></div>
+        </div>
     </div>
 </div>
 
